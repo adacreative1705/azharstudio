@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azhar Studio & A.D.A Creative - Wedding Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+    
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+        font-weight: 400;
+    }
+    .gradient-text {
+        background: linear-gradient(90deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    /* Scroll animations */
+    section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+    }
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Staggered animations for service cards */
+    .service-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease-out;
+        border-bottom: 3px solid transparent; /* Add a subtle border */
+    }
+    .service-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .service-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        transition: all 0.3s ease;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-bottom: 3px solid #94a3b8; /* Highlight on hover */
+    }
+    .service-card .icon-wrapper {
+        font-size: 3.5rem; /* Larger icon size */
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #f8fafc, #94a3b8); /* Gradient icon */
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block; /* To apply gradient to icon */
+    }
+    
+    .package-card {
+        border-left: 3px solid #888;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .package-card:hover {
+        border-left: 3px solid #fff;
+        transform: scale(1.03);
+    }
+</style>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-slate-900 text-slate-200 py-4 px-6 fixed w-full z-10 shadow-lg backdrop-blur-sm bg-opacity-80">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <span class="text-xl font-bold gradient-text">AZHAR STUDIO</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-white">Beranda</a>
+                <a href="#akad-packages" class="hover:text-white">Paket</a>
+                <a href="#order" class="hover:text-white">Pesan</a>
+                <a href="#contact" class="hover:text-white">Kontak</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-gray-300 hover:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden bg-black py-4 px-6 md:hidden">
+            <a href="#home" class="block py-2 hover:text-white">Beranda</a>
+            <a href="#akad-packages" class="block py-2 hover:text-white">Paket</a>
+            <a href="#order" class="block py-2 hover:text-white">Pesan</a>
+            <a href="#contact" class="block py-2 hover:text-white">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-b from-slate-900 to-slate-800 visible">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white font-serif">
+                    <span class="gradient-text">Azhar Studio</span> & 
+                    <span class="text-gray-300">A.D.A Creative</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-8">
+                    Menangkap setiap momen berharga pernikahan Anda dengan keindahan seni fotografi profesional.
+                </p>
+                <a href="#order" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 inline-block">
+                    Pesan Sekarang
+                </a>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af37f32c-d8de-4d13-87ac-0b75144fbaff.png" alt="Pasangan pengantin dengan latar belakang pemandangan sunset, kamera profesional sedang mengambil gambar close-up" class="rounded-lg shadow-2xl" />
+            </div>
+        </div>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-16 px-6 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                Paket <span class="gradient-text">Wedding</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Silver</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 1.600.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 150 - 200 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Bingkai 4 Buah 10R</span>
+                        </li>
+                        <li class="flex items-start">
+                            <!-- <i class="fas fa-times text-red-400 mr-2 mt-1"></i> -->
+                             <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-500">PG Standby 1 - 2 Orang</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Gold</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 2.500.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 150 - 200 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Album Isi 100 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>PG Standby 1 - 2 Orang</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Platinum</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 3.500.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 150 - 200 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Bingkai UK 10R 4 Buah</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Bingkai Jumbo 1 Buah</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Album Large Isi 100 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Vidio Cinematic Wedding Durasi 1 - 3 Menit</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>PG Standby 1 - 3</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paket Akad Section -->
+    <section id="akad-packages" class="py-16 px-6 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                Paket <span class="gradient-text">Akad Only / Resepsi Only</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paket Akad 1 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Basic</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 1.300.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 100 - 500 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Bingkai 4 Buah 10R</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>PG Standy 1 - 2 Orang</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+                
+                <!-- Paket Akad 2 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Premium</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 1.800.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 100 - 150 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Album Isi 100 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>PG Standy 1 - 2 Orang</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+                
+                <!-- Paket Akad 3 -->
+                <div class="package-card bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Paket Exclusive</h3>
+                    <div class="text-3xl font-bold mb-6 gradient-text">Rp 2.300.000</div>
+                    <ul class="text-gray-300 mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Unlimited</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Edit 100 - 150 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Foto Album Large Isi 100 Foto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>Vidio Cinematic Durasi 1 - 3 Menit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                            <span>PG Standby 1 - 3 Orang</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="block text-center bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Pesan Paket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-16 px-6 bg-slate-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                Formulir <span class="gradient-text">Pemesanan</span>
+            </h2>
+            <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+                <form id="orderForm">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 mb-2">Nama Lengkap</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="phone" class="block text-gray-300 mb-2">Nomor Telepon</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Perubahan: Email menjadi Alamat Lengkap -->
+                    <div class="mb-6">
+                        <label for="location" class="block text-gray-300 mb-2">Lokasi Acara</label>
+                         <input type="text" id="location" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="package" class="block text-gray-300 mb-2">Pilih Paket</label>
+                        <select id="package" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400">
+                            <option value="">-- Pilih Paket --</option>
+                            <option value="silver">Paket Silver - Rp1.600.000</option>
+                            <option value="gold">Paket Gold - Rp2.500.000</option>
+                            <option value="platinum">Paket Platinum - Rp3.500.000</option>
+                            <option value="akad-basic">Paket Akad/Resepsi Basic - Rp1.300.000</option>
+                            <option value="akad-premium">Paket Akad/Resepsi Premium - Rp1.800.000</option>
+                            <option value="akad-exclusive">Paket Akad/Resepsi Exclusive - Rp2.00.000</option>
+                            <option value="custom">Paket Custom (Diskusikan)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="date" class="block text-gray-300 mb-2">Tanggal Acara</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="note" class="block text-gray-300 mb-2">Catatan Tambahan</label>
+                        <textarea id="note" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-400"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Kirim Pesanan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                Kontak <span class="gradient-text">Kami</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Azhar Studio Info -->
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-white">Azhar Studio</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-300">Alamat</h4>
+                                <p class="text-gray-400">Jl. Perdana No. 42, Jakarta Selatan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-gray-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-300">Telepon/WA</h4>
+                                <p class="text-gray-400">0812-3456-7890</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-gray-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-300">Email</h4>
+                                <p class="text-gray-400">azharstudio@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-medium text-gray-300 mb-3">Sosial Media</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-facebook text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-youtube text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Info -->
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg col-span-2">
+                    <h3 class="text-2xl font-bold mb-8 text-white text-center">Tim Kami</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Team Member 1 -->
+                        <div class="bg-gray-800 rounded-lg p-6 text-center hover:bg-gray-700 transition duration-300">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60106230-2e31-4242-98ba-65df5d7cba38.png" alt="Potret profesional Azhar, fotografer utama dengan kacamata dan senyum ramah" class="rounded-full w-24 h-24 object-cover border-2 border-gray-600 mx-auto mb-4" />
+                            <h4 class="font-bold text-white text-lg">Azhar</h4>
+                            <p class="text-gray-300 mb-2">Fotografer Utama</p>
+                            <div class="flex justify-center space-x-3 mt-3">
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Member 2 -->
+                        <div class="bg-gray-800 rounded-lg p-6 text-center hover:bg-gray-700 transition duration-300">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d44075cc-685f-4059-93f1-60ea96995894.png" alt="Potret profesional Dimas, Fotografer dengan gaya modern dan ekspresi serius" class="rounded-full w-24 h-24 object-cover border-2 border-gray-600 mx-auto mb-4" />
+                            <h4 class="font-bold text-white text-lg">Dimas</h4>
+                            <p class="text-gray-300 mb-2">Fotografer</p>
+                            <div class="flex justify-center space-x-3 mt-3">
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Member 3 -->
+                        <div class="bg-gray-800 rounded-lg p-6 text-center hover:bg-gray-700 transition duration-300">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5651493a-8017-41ad-bff3-104853ad8566.png" alt="Potret profesional Andreawan, editor dengan gaya santai dan ekspresi kreatif" class="rounded-full w-24 h-24 object-cover border-2 border-gray-600 mx-auto mb-4" />
+                            <h4 class="font-bold text-white text-lg">Andreawan</h4>
+                            <p class="text-gray-300 mb-2">Editor & Content Writer</p>
+                            <div class="flex justify-center space-x-3 mt-3">
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 px-6 border-t border-slate-700">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold gradient-text">AZHAR STUDIO</h2>
+                    <span class="text-sm text-gray-400">& A.D.A CREATIVE</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2023 Azhar Studio & A.D.A Creative</p>
+                    <p class="text-sm text-gray-500 mt-1">By. Andreawan B</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <!-- JavaScript -->
+    <script>
+        // Intersection Observer for scroll animations
+        const animateOnScroll = () => {
+            const sections = document.querySelectorAll('section');
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => observer.observe(section));
+            
+            // Staggered animation for service cards
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            serviceCards.forEach(card => cardObserver.observe(card));
+        };
+        
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (mobileMenu.classList.contains('hidden') === false) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form Submission
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const package = document.getElementById('package').value;
+            
+            if (!name || !package) {
+                alert('Harap isi nama lengkap dan pilih paket!');
+                return;
+            }
+            
+            alert(`Terima kasih ${name}! Pesanan paket ${package} Anda telah kami terima. Tim kami akan segera menghubungi Anda.`);
+            orderForm.reset();
+        });
+    </script>
+</body>
+</html>
